@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck5tdynps8sv2"]
+
+[ext_resource type="Texture2D" uid="uid://c4rgqktb4cv8y" path="res://art/Sprout Lands - Sprites - Basic pack/Objects/Chest.png" id="1_5giie"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u6ec1"]
+radius = 5.0
+height = 16.0
+
+[node name="Chest" type="Sprite2D"]
+texture = ExtResource("1_5giie")
+hframes = 5
+vframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_u6ec1")

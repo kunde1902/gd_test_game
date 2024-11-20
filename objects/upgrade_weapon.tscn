@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://rsh83uxulur0"]
+
+[ext_resource type="Texture2D" uid="uid://4almypr72ukg" path="res://art/Sprout Lands - Sprites - Basic pack/Objects/Basic_tools_and_meterials.png" id="1_txj4h"]
+[ext_resource type="Script" path="res://objects/upgrade_weapon.gd" id="2_xy0ug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fr6r"]
+size = Vector2(16, 16)
+
+[node name="UpgradeWeapon" type="Sprite2D"]
+texture = ExtResource("1_txj4h")
+hframes = 3
+vframes = 2
+frame = 1
+script = ExtResource("2_xy0ug")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6fr6r")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

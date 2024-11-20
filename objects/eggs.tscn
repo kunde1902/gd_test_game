@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqxpcn7l53ld1"]
+
+[ext_resource type="Texture2D" uid="uid://cw71ek812heji" path="res://art/Sprout Lands - Sprites - Basic pack/Characters/Egg_And_Nest.png" id="1_xe5jc"]
+
+[node name="EggAndNest" type="Sprite2D"]
+texture = ExtResource("1_xe5jc")
+hframes = 4
+frame = 2

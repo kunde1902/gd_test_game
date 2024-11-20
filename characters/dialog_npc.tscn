@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1y3nexnekalp"]
+
+[ext_resource type="Texture2D" uid="uid://eoku3yss6cvc" path="res://art/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png" id="1_6fsad"]
+[ext_resource type="Script" path="res://characters/dialog_npc.gd" id="1_psd22"]
+[ext_resource type="FontFile" uid="uid://c4nqd08j527rq" path="res://fonts/NES.tres" id="3_mu5ue"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_enfrc"]
+radius = 7.0
+height = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ic8ym"]
+bg_color = Color(0.10748, 0.10748, 0.10748, 0.278431)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_psd22")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6fsad")
+hframes = 2
+vframes = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_enfrc")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = -16.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ic8ym")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/PanelContainer"]
+z_index = 50
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -1
+theme_override_fonts/normal_font = ExtResource("3_mu5ue")
+text = "Era uma vez um biscoito, 
+ha ha ha
+print(\"Hallo Welt\")
+mais uma linha e vejaremos o que acontece"
+scroll_active = false
+scroll_following = true
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false

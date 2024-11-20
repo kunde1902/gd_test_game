@@ -1,0 +1,104 @@
+[gd_scene load_steps=4 format=3 uid="uid://o8u7psbgtsb6"]
+
+[ext_resource type="Script" path="res://utility/hud_global.gd" id="1_14u07"]
+[ext_resource type="Texture2D" uid="uid://dst3yu5kme0rc" path="res://art/LTTP/HUDclean.png" id="2_bieij"]
+[ext_resource type="Texture2D" uid="uid://rtehvsdb6wmr" path="res://art/LTTP/FontsNHearts.png" id="3_75d8r"]
+
+[node name="HudGlobal" type="Node2D"]
+script = ExtResource("1_14u07")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_bieij")
+
+[node name="HeartContainer" type="GridContainer" parent="Base"]
+offset_left = 33.0
+offset_top = -19.0
+offset_right = 113.0
+offset_bottom = -3.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="KeyContainer" type="GridContainer" parent="Base"]
+offset_left = 17.0
+offset_top = -19.0
+offset_right = 25.0
+offset_bottom = -11.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="KeySprite" type="Sprite2D" parent="Base/KeyContainer"]
+position = Vector2(4, 4)
+texture = ExtResource("3_75d8r")
+hframes = 5
+vframes = 4
+
+[node name="ArrowContainer" type="GridContainer" parent="Base"]
+offset_left = -7.0
+offset_top = -19.0
+offset_right = 9.0
+offset_bottom = -11.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="ArrowSpriteDecimal" type="Sprite2D" parent="Base/ArrowContainer"]
+position = Vector2(4, 4)
+texture = ExtResource("3_75d8r")
+hframes = 5
+vframes = 4
+
+[node name="ArrowSpriteUnit" type="Sprite2D" parent="Base/ArrowContainer"]
+position = Vector2(12, 4)
+texture = ExtResource("3_75d8r")
+hframes = 5
+vframes = 4
+
+[node name="BombContainer" type="GridContainer" parent="Base"]
+offset_left = -31.0
+offset_top = -19.0
+offset_right = -15.0
+offset_bottom = -11.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="BombSpriteDecimal" type="Sprite2D" parent="Base/BombContainer"]
+position = Vector2(4, 4)
+texture = ExtResource("3_75d8r")
+hframes = 5
+vframes = 4
+
+[node name="BombSpriteUnit" type="Sprite2D" parent="Base/BombContainer"]
+position = Vector2(12, 4)
+texture = ExtResource("3_75d8r")
+hframes = 5
+vframes = 4
+
+[node name="RuppeeContainer" type="GridContainer" parent="Base"]
+offset_left = -63.0
+offset_top = -19.0
+offset_right = -39.0
+offset_bottom = -11.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="RuppeeSpriteCent" type="Sprite2D" parent="Base/RuppeeContainer"]
+position = Vector2(4, 4)
+texture = ExtResource("3_75d8r")
+hframes = 5
+vframes = 4
+
+[node name="RuppeeSpriteDecimal" type="Sprite2D" parent="Base/RuppeeContainer"]
+position = Vector2(12, 4)
+texture = ExtResource("3_75d8r")
+hframes = 5
+vframes = 4
+
+[node name="RuppeeSpriteUnit" type="Sprite2D" parent="Base/RuppeeContainer"]
+position = Vector2(20, 4)
+texture = ExtResource("3_75d8r")
+hframes = 5
+vframes = 4

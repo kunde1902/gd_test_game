@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhjxdyqn2qbkg"]
+
+[ext_resource type="Texture2D" uid="uid://c44glepsv3ito" path="res://art/Sprout Lands - Sprites - Basic pack/Objects/Basic_Furniture.png" id="1_65y2t"]
+
+[node name="Frame1" type="Sprite2D"]
+texture = ExtResource("1_65y2t")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

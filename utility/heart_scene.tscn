@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://c60dtnpcel5vn"]
+
+[ext_resource type="Script" path="res://utility/heart_texture_rect.gd" id="1_1v2sy"]
+[ext_resource type="Texture2D" uid="uid://5iqkj16njy68" path="res://art/LTTP/HeartFull.png" id="2_if2wb"]
+[ext_resource type="Texture2D" uid="uid://dydqpijpnthrq" path="res://art/LTTP/HeartHalf.png" id="3_khqya"]
+[ext_resource type="Texture2D" uid="uid://dyf7edm4yojw" path="res://art/LTTP/HeartEmpty.png" id="4_1obwq"]
+
+[node name="TextureRect" type="TextureRect"]
+script = ExtResource("1_1v2sy")
+full_heart_texture = ExtResource("2_if2wb")
+half_heart_texture = ExtResource("3_khqya")
+empty_heart_texture = ExtResource("4_1obwq")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://vhq1v5231j2r"]
+
+[ext_resource type="Script" path="res://menus/options_menu.gd" id="1_tky2l"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tky2l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.357
+anchor_top = 0.357
+anchor_right = 0.635
+anchor_bottom = 0.635
+offset_left = -0.440033
+offset_top = -0.440033
+offset_right = -0.200073
+offset_bottom = -0.200073
+alignment = 1
+
+[node name="Optiones" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Not Functional"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+icon_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Optiones" to="." method="_on_optiones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

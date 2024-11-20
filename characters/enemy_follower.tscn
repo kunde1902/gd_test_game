@@ -1,0 +1,186 @@
+[gd_scene load_steps=25 format=3 uid="uid://cfhvy531w2c51"]
+
+[ext_resource type="Script" path="res://characters/enemy_follower.gd" id="1_td0q1"]
+[ext_resource type="Texture2D" uid="uid://wjvoa6pywldx" path="res://art/Sprout Lands - Sprites - Basic pack/Characters/Free Chicken Sprites.png" id="2_fe8y3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0obd"]
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_xi1sq"]
+resource_name = "IdleRight"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_nkrly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_x4ca8"]
+resource_name = "WalkRight"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f844v"]
+_data = {
+"IdleRight": SubResource("Animation_xi1sq"),
+"RESET": SubResource("Animation_nkrly"),
+"WalkRight": SubResource("Animation_x4ca8")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_751tb"]
+animation = &"IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2kf2i"]
+animation = &"IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2q3op"]
+animation = &"IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_au2qx"]
+animation = &"IdleRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_36dnu"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_751tb")
+blend_point_0/pos = Vector2(-1.1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2kf2i")
+blend_point_1/pos = Vector2(0, 1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_2q3op")
+blend_point_2/pos = Vector2(1.1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_au2qx")
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1.1, -1.1)
+max_space = Vector2(1.1, 1.1)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_odbhe"]
+animation = &"WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4rlum"]
+animation = &"WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xhee6"]
+animation = &"WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a663j"]
+animation = &"WalkRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_vbpkq"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_odbhe")
+blend_point_0/pos = Vector2(-1.1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_4rlum")
+blend_point_1/pos = Vector2(0, 1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_xhee6")
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_a663j")
+blend_point_3/pos = Vector2(1.1, 0)
+min_space = Vector2(-1.1, -1.1)
+max_space = Vector2(1.1, 1.1)
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oht26"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f3te8"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hgpb6"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_66urb"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_36dnu")
+states/Idle/position = Vector2(353, 94)
+states/Start/position = Vector2(190, 93)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_vbpkq")
+states/Walk/position = Vector2(353, 229)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_oht26"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_f3te8"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_hgpb6")]
+graph_offset = Vector2(-65, 33)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cnfv"]
+bg_color = Color(0.501961, 0, 0, 1)
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nq6f3"]
+bg_color = Color(0, 0.501961, 0, 1)
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h3eqd"]
+radius = 8.0
+
+[node name="EnemyFollower" type="CharacterBody2D" groups=["enemies"]]
+collision_mask = 0
+script = ExtResource("1_td0q1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.638799, 0.547194, 1)
+position = Vector2(1, -1)
+texture = ExtResource("2_fe8y3")
+hframes = 4
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q0obd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f844v")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_66urb")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle/blend_position = Vector2(0, 0)
+parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -8.0
+offset_top = -10.0
+offset_right = 8.0
+offset_bottom = -8.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1cnfv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nq6f3")
+max_value = 5.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="AttackHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitBox"]
+shape = SubResource("CircleShape2D_h3eqd")
+
+[connection signal="body_entered" from="AttackHitBox" to="." method="_on_attack_hit_box_body_entered"]
